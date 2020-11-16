@@ -1,0 +1,30 @@
+{
+  "name": "amo-to-json",
+  "description": "Convert AMO reviews to a JSON or CSV file.",
+  "version": "1.0.0",
+  "author": "Peter deHaan <peter@deseloper.com> (https://about.me/peterdehaan)",
+  "bin": {
+    "amo-to-json": "cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/pdehaan/amo-to-json/issues"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "json2csv": "^5.0.5",
+    "sort-json": "^2.0.0"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/pdehaan/amo-to-json#readme",
+  "keywords": [],
+  "license": "MPL-2.0",
+  "main": "lib.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pdehaan/amo-to-json.git"
+  },
+  "scripts": {
+    "start": "./cli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
