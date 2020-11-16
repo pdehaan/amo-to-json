@@ -1,14 +1,14 @@
 const axios = require("axios");
+const { parse } = require("json2csv");
 const sortJson = require("sort-json");
 
-const BASE_URL = "https://addons.mozilla.org/";
-
 const client = axios.create({
-  baseURL: BASE_URL,
+  baseURL: "https://addons.mozilla.org/",
 });
 
 module.exports = {
   getReviews,
+  jsonToCsv,
 }
 
 async function getReviews(addon, page = 1) {
@@ -39,4 +39,10 @@ async function getReviews(addon, page = 1) {
       return sortJson(review);
     })
     .filter((review) => !review.is_deleted || !review.is_developer_reply);
+}
+
+function jsonToCsv(data = {}) {
+  return parse(data, {
+    fields: ["body", "created", "id", "score", "user", "version", "reply"],
+  });
 }

@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const arg = require("arg");
-const { parse } = require("json2csv");
 const lib = require("./lib");
 
 const args = arg({
@@ -23,16 +22,10 @@ async function main(output = "json") {
       data = JSON.stringify(data, null, 2);
       break;
     case "csv":
-      data = jsonToCsv(data);
+      data = lib.jsonToCsv(data);
       break;
     default:
       throw new Error(`Unknown output format: "${output}". Expected "JSON" or "CSV"`);
   }
   console.log(data);
-}
-
-function jsonToCsv(data = {}) {
-  return parse(data, {
-    fields: ["body", "created", "id", "score", "user", "version", "reply"],
-  });
 }

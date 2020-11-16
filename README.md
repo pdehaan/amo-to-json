@@ -7,7 +7,11 @@
 ### CLI
 
 ```sh
-npx pdehaan/amo-to-json > reviews.csv
+# Output as JSON
+npx pdehaan/amo-to-json > reviews.json
+
+# Output as CSV
+npx pdehaan/amo-to-json -o csv > reviews.csv
 ```
 
 ### API
